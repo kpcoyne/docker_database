@@ -3,7 +3,7 @@
 This is the files for a docker container and a compose file that will run a MS SQL server in a container.  You can setup the databse
 with custom .sql files that will be imported on startup if need be.
 
-## Authenttication
+## Authentication
 
 The databse will be setup with an SA account and can be setup with other accounts in the sql files.
 
