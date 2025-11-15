@@ -1,0 +1,27 @@
+# this composer file will start a database up.  In the directory that this file resides,
+# create a sub folder "db_data" and put any sql files that are to be executed once the
+# database is started.  These will be executed in glob alphabetical order.  You can then
+# connect to the database on port 1433 using SSIS or any sql app.
+---
+services:
+  database:
+    image: sql_database:latest
+    ports: 
+      - "1433:1433"
+    # allow users to connect to the DB with SSIS
+    expose:
+      - "1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Yukon900
+    volumes:
+      - type: bind
+        source: ./db_data
+        target: /usr/src/app/mnt
+        read_only: false 
+    networks:
+      - app_network
+
+networks: # Define custom networks
+  app_network:
+    driver: bridge
