@@ -1,0 +1,6 @@
+{
+  "name": "sql_database",
+  "version": "1.0.1",
+  "description": "SQL Server on Docker demo application",
+  "author": "Kevin Coyne",
+}
